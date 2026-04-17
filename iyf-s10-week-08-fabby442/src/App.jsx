@@ -3,6 +3,8 @@ import Footer from "./components/Footer";
 import PostCard from "./components/PostCard";
 import Sidebar from "./components/Sidebar";
 import Button from "./components/Button";
+import Counter from "./components/Counter";
+import Toggle from "./components/Toggle";
 
 function App() {
   const posts = [
@@ -51,6 +53,8 @@ function App() {
       </main>
 
       <Footer />
+      <Counter />
+      <Toggle />
     </div>
   );
 }
