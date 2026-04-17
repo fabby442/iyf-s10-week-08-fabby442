@@ -1,28 +1,26 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import PostCard from "./components/PostCard";
+import Sidebar from "./components/Sidebar";
+import Button from "./components/Button";
+
 function App() {
-  const name = "Fabian alvin";
-  const today = new Date();
-  const hour = today.getHours();
-
-  let greeting;
-  if (hour < 12) {
-    greeting = "Good morning";
-  } else if (hour < 18) {
-    greeting = "Good afternoon";
-  } else {
-    greeting = "Good evening";
-  }
-
   return (
     <div>
-      <h1>Hello, {name} 👋</h1>
+      <Header />
 
-      <p>I am learning React and building real projects.</p>
-      <p>I enjoy coding and creating interactive web apps.</p>
-      <p>My goal is to become a strong frontend developer.</p>
+      <main>
+        <h2>Welcome to my Hub</h2>
 
-      <p>Today's date: {today.toDateString()}</p>
+        <PostCard />
+        <PostCard />
 
-      <p>{greeting}, welcome back!</p>
+        <Sidebar />
+
+        <Button />
+      </main>
+
+      <Footer />
     </div>
   );
 }
