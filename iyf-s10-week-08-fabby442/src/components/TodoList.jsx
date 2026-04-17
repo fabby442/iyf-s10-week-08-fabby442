@@ -1,41 +1,13 @@
 import { useState } from "react";
 
-function TodoList() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build Projects", completed: false }
-  ]);
-
+function TodoList({ todos, addTodo, toggleTodo, deleteTodo }) {
   const [input, setInput] = useState("");
 
-  // ADD TODO
-  const addTodo = () => {
+  const handleAdd = () => {
     if (!input.trim()) return;
 
-    const newTodo = {
-      id: Date.now(),
-      text: input,
-      completed: false
-    };
-
-    setTodos([...todos, newTodo]);
+    addTodo(input);
     setInput("");
-  };
-
-  // TOGGLE TODO
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map(todo =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      )
-    );
-  };
-
-  // DELETE TODO
-  const deleteTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
   };
 
   return (
@@ -48,7 +20,7 @@ function TodoList() {
         placeholder="Add a task"
       />
 
-      <button onClick={addTodo}>Add</button>
+      <button onClick={handleAdd}>Add</button>
 
       <ul>
         {todos.map(todo => (
