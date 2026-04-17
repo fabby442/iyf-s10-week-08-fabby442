@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-function TodoList({ todos, addTodo, toggleTodo, deleteTodo }) {
+function TodoList({ todos, addTodo, toggleTodo, deleteTodo, editTodo }) {
   const [input, setInput] = useState("");
+  const [editId, setEditId] = useState(null);
+  const [editText, setEditText] = useState("");
 
   const handleAdd = () => {
     if (!input.trim()) return;
@@ -14,6 +16,7 @@ function TodoList({ todos, addTodo, toggleTodo, deleteTodo }) {
     <div>
       <h3>Todo List</h3>
 
+      {/* ADD TODO */}
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -25,19 +28,49 @@ function TodoList({ todos, addTodo, toggleTodo, deleteTodo }) {
       <ul>
         {todos.map(todo => (
           <li key={todo.id}>
-            <span
-              onClick={() => toggleTodo(todo.id)}
-              style={{
-                textDecoration: todo.completed ? "line-through" : "none",
-                cursor: "pointer"
-              }}
-            >
-              {todo.text}
-            </span>
+            {editId === todo.id ? (
+              <>
+                <input
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                />
 
-            <button onClick={() => deleteTodo(todo.id)}>
-              Delete
-            </button>
+                <button
+                  onClick={() => {
+                    editTodo(todo.id, editText);
+                    setEditId(null);
+                    setEditText("");
+                  }}
+                >
+                  Save
+                </button>
+              </>
+            ) : (
+              <>
+                <span
+                  onClick={() => toggleTodo(todo.id)}
+                  style={{
+                    textDecoration: todo.completed ? "line-through" : "none",
+                    cursor: "pointer"
+                  }}
+                >
+                  {todo.text}
+                </span>
+
+                <button
+                  onClick={() => {
+                    setEditId(todo.id);
+                    setEditText(todo.text);
+                  }}
+                >
+                  Edit
+                </button>
+
+                <button onClick={() => deleteTodo(todo.id)}>
+                  Delete
+                </button>
+              </>
+            )}
           </li>
         ))}
       </ul>

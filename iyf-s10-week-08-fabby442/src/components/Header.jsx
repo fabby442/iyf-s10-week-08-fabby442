@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header>
-      <h1>CommunityHub</h1>
+      <h1>make your work easy</h1>
       <nav>
         <a href="#">Home</a>
         <a href="#">Posts</a>
