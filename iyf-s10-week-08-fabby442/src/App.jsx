@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Button from "./components/Button";
 import Counter from "./components/Counter";
 import Toggle from "./components/Toggle";
+import ContactForm from "./components/ContactForm";
 
 function App() {
   const posts = [
@@ -55,6 +56,7 @@ function App() {
       <Footer />
       <Counter />
       <Toggle />
+      <ContactForm />
     </div>
   );
 }
