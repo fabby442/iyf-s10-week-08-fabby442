@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import Counter from "./components/Counter";
 import Toggle from "./components/Toggle";
 import ContactForm from "./components/ContactForm";
+import TodoList from "./components/TodoList";
 
 function App() {
   const posts = [
@@ -57,6 +58,8 @@ function App() {
       <Counter />
       <Toggle />
       <ContactForm />
+      <TodoList />
+      
     </div>
   );
 }
