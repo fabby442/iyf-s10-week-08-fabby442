@@ -1,9 +1,9 @@
-function PostCard() {
+function PostCard({ title, excerpt, author, date }) {
   return (
     <div>
-      <h3>find me</h3>
-      <p>follow my ig.</p>
-      <span>@newfaceoffabby</span>
+      <h3>{title}</h3>
+      <p>{excerpt}</p>
+      <small>By {author} | {date}</small>
     </div>
   );
 }
